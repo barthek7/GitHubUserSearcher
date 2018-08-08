@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
 
 class App extends React.Component {
     constructor() {
@@ -64,8 +66,3 @@ class App extends React.Component {
       );
     }
   }
-
-  ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);

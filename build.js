@@ -2,21 +2,13 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -58,20 +50,20 @@ var App = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return _react2.default.createElement(
+      return React.createElement(
         'div',
         null,
-        _react2.default.createElement(
+        React.createElement(
           'form',
           { onSubmit: function onSubmit(event) {
               return _this3.onSubmit(event);
             } },
-          _react2.default.createElement(
+          React.createElement(
             'label',
             { htmlFor: 'searchText' },
             'Search by user name'
           ),
-          _react2.default.createElement('input', {
+          React.createElement('input', {
             type: 'text',
             id: 'searchText',
             onChange: function onChange(event) {
@@ -79,13 +71,13 @@ var App = function (_React$Component) {
             },
             value: this.state.searchText })
         ),
-        _react2.default.createElement(UsersList, { users: this.state.users })
+        React.createElement(UsersList, { users: this.state.users })
       );
     }
   }]);
 
   return App;
-}(_react2.default.Component);
+}(React.Component);
 
 var UsersList = function (_React$Component2) {
   _inherits(UsersList, _React$Component2);
@@ -99,7 +91,7 @@ var UsersList = function (_React$Component2) {
   _createClass(UsersList, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
+      return React.createElement(
         'div',
         null,
         this.users
@@ -109,13 +101,13 @@ var UsersList = function (_React$Component2) {
     key: 'users',
     get: function get() {
       return this.props.users.map(function (user) {
-        return _react2.default.createElement(User, { key: user.id, user: user });
+        return React.createElement(User, { key: user.id, user: user });
       });
     }
   }]);
 
   return UsersList;
-}(_react2.default.Component);
+}(React.Component);
 
 var User = function (_React$Component3) {
   _inherits(User, _React$Component3);
@@ -129,11 +121,11 @@ var User = function (_React$Component3) {
   _createClass(User, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
+      return React.createElement(
         'div',
         null,
-        _react2.default.createElement('img', { src: this.props.user.avatar_url, style: { maxWidth: '100px' } }),
-        _react2.default.createElement(
+        React.createElement('img', { src: this.props.user.avatar_url, style: { maxWidth: '100px' } }),
+        React.createElement(
           'a',
           { href: this.props.user.html_url, target: '_blank' },
           this.props.user.login
@@ -143,6 +135,4 @@ var User = function (_React$Component3) {
   }]);
 
   return User;
-}(_react2.default.Component);
-
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
+}(React.Component);
