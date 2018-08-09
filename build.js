@@ -8,8 +8,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -50,14 +48,17 @@ var App = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      var styles = {
+        textAlign: 'center'
+      };
       return React.createElement(
         'div',
-        null,
+        { style: styles },
         React.createElement(
           'form',
           { onSubmit: function onSubmit(event) {
               return _this3.onSubmit(event);
-            } },
+            }, style: { margin: '10px auto' } },
           React.createElement(
             'label',
             { htmlFor: 'searchText' },
@@ -121,13 +122,30 @@ var User = function (_React$Component3) {
   _createClass(User, [{
     key: 'render',
     value: function render() {
+      var styles = {
+        maxWidth: '100px',
+        boxShadow: '10px 10px 10px #bbb'
+      };
       return React.createElement(
         'div',
         null,
-        React.createElement('img', { src: this.props.user.avatar_url, style: { maxWidth: '100px' } }),
+        React.createElement('img', { src: this.props.user.avatar_url, style: styles }),
         React.createElement(
           'a',
-          { href: this.props.user.html_url, target: '_blank' },
+          { href: this.props.user.html_url, target: '_blank',
+            style: {
+              display: 'block',
+              textDecoration: 'none',
+              cursor: 'pointer',
+              maxWidth: '100px',
+              margin: '10px auto',
+              fontStyle: 'italic',
+              fontWeight: 'bold',
+              backgroundColor: 'blue',
+              color: 'white',
+              border: '2px solid blue',
+              borderRadius: '6px'
+            } },
           this.props.user.login
         )
       );
@@ -136,3 +154,5 @@ var User = function (_React$Component3) {
 
   return User;
 }(React.Component);
+
+ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
